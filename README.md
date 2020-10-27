@@ -1,4 +1,4 @@
-# Laravel 7 AdminLTE 整合
+# Laravel 8 AdminLTE 整合
 
 引入 jeroennoten 的 laravel-adminlte 套件來擴增整合 AdminLTE 簡潔的管理性網站版型，高度可定製，易於使用，瀏覽器支援 IE9 以 上、FireFox、Safari、Chrome 及 Opera 的最新版本。
 
