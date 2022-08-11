@@ -1,4 +1,4 @@
-# Laravel 8 AdminLTE 整合
+# Laravel 9 AdminLTE 整合
 
 引入 jeroennoten 的 laravel-adminlte 套件來擴增整合 AdminLTE 簡潔的管理性網站版型，高度可定製，易於使用，瀏覽器支援 IE9 以 上、FireFox、Safari、Chrome 及 Opera 的最新版本。
 
@@ -16,9 +16,13 @@ $ composer install
 ```sh
 $ php artisan key:generate
 ```
-- 執行 __Artisan__ 指令的 __migrate__ 來執行所有未完成的遷移，並執行資料庫填充（如果要測試的話）。
+- 建置正式環境的資源版本。
 ```sh
-$ php artisan migrate --seed
+$ npm run build
+```
+- 執行 __Artisan__ 指令的 __migrate__ 來執行所有未完成的遷移。
+```sh
+$ php artisan migrate
 ```
 - 在瀏覽器中輸入已定義的路由 URL 來訪問，例如：http://127.0.0.1:8000。
 - 你可以經由 `/register` 來進行註冊。
@@ -26,11 +30,11 @@ $ php artisan migrate --seed
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/2NX3sG7.png)
+![](https://i.imgur.com/RVqcUAS.png)
 > 建立新的帳號
 
-![](https://i.imgur.com/kFHKvLU.png)
+![](https://i.imgur.com/C4epRa9.png)
 > 使用現有的帳號登入
 
-![](https://i.imgur.com/BiQk7OW.png)
+![](https://i.imgur.com/7A8YGIf.png)
 > 省去不少前端布局的時間，可以把時間拿來處理各項統計資料的分析及產出

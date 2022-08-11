@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', '儀表板')
+@section('title', '{{ __("Dashboard") }}')
 
 @section('content_header')
-    <h1>儀表板</h1>
+    <h1>{{ __('Dashboard') }}</h1>
 @stop
 
 @section('content')
-    <p>你已經登入！</p>
+    <p>{{ __('You are logged in!') }}</p>
 @stop
