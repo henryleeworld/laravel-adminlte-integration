@@ -1,80 +1,207 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+        <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+        @yield('styles')
+    </head>
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" style="left: inherit; right: 0px;">
+                            <a href="{{ route('admin.profile.show') }}" class="dropdown-item">
+                                <i class="mr-2 fas fa-file"></i>
+                                {{ __('My profile') }}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    <i class="mr-2 fas fa-sign-out-alt"></i>
+                                    {{ __('Log Out') }}
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="/" class="brand-link">
+                    <img src="{{ asset('images/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;" />
+                    <span class="brand-text font-weight-light">{{ config('app.name', 'Laravel') }}</span>
+                </a>
+                @include('layouts.navigation')
+            </aside>
+            <div class="content-wrapper">
+                @yield('content')
             </div>
-        </nav>
+            <!--
+            <aside class="control-sidebar control-sidebar-dark">
+                <div class="p-3">
+                    <h5>Title</h5>
+                    <p>Sidebar content</p>
+                </div>
+            </aside>
+            -->
+            <footer class="main-footer">
+                <div class="float-right d-none d-sm-inline">
+                    {{ config('app.env') }}
+                </div>
+                <strong>&copy; {{ now()->year }} <a class="badge badge-pill badge-dark" href="{{ config('app.url') }}">{{ config('app.name') }}</a>.</strong>
+            </footer>
+        </div>
+        @vite('resources/js/app.js')
+        <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
+        <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" defer></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js" defer></script>
+        <script src="//cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" defer></script>
+        <script src="//cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap4.min.js" defer></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" defer></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" defer></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" defer></script>
+        <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.2.7/build/pdfmake.min.js" defer></script>
+        <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.2.7/build/vfs_fonts.js" defer></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" defer></script>
+        <script src="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+        <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
+        <script src="{{ asset('js/main.js') }}" defer></script>
+        <script type="module">
+            $(function() {
+                let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
+                let csvButtonTrans = '{{ trans('global.datatables.csv') }}'
+                let excelButtonTrans = '{{ trans('global.datatables.excel') }}'
+                let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}'
+                let printButtonTrans = '{{ trans('global.datatables.print') }}'
+                let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}'
+                let selectAllButtonTrans = '{{ trans('global.select_all') }}'
+                let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}'
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+                let languages = {
+                    'en': '//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json',
+                    'zh_TW': '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json'
+                };
+
+                $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, { className: 'btn' })
+                $.extend(true, $.fn.dataTable.defaults, {
+                language: {
+                    url: languages['{{ app()->getLocale() }}']
+                },
+                columnDefs: [{
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets: 0
+                }, {
+                    orderable: false,
+                    searchable: false,
+                    targets: -1
+                }],
+                select: {
+                    style:    'multi+shift',
+                    selector: 'td:first-child'
+                },
+                order: [],
+                scrollX: true,
+                pageLength: 100,
+                dom: 'lBfrtip<"actions">',
+                buttons: [
+                    {
+                        extend: 'selectAll',
+                        className: 'btn-primary',
+                        text: selectAllButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        },
+                        action: function(e, dt) {
+                            e.preventDefault()
+                            dt.rows().deselect();
+                            dt.rows({ search: 'applied' }).select();
+                        }
+                    },
+                    {
+                        extend: 'selectNone',
+                        className: 'btn-primary',
+                        text: selectNoneButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'copy',
+                        className: 'btn-default',
+                        text: copyButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn-default',
+                        text: csvButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        className: 'btn-default',
+                        text: excelButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn-default',
+                        text: pdfButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn-default',
+                        text: printButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'colvis',
+                        className: 'btn-default',
+                        text: colvisButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }
+                ]
+                });
+
+                $.fn.dataTable.ext.classes.sPageButton = '';
+            });
+        </script>
+        @yield('scripts')
+    </body>
 </html>

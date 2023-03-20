@@ -1,6 +1,6 @@
 # Laravel 10 AdminLTE 整合
 
-引入 jeroennoten 的 laravel-adminlte 套件來擴增整合 AdminLTE 簡潔的管理性網站版型，高度可定製，易於使用，瀏覽器支援 IE9 以 上、FireFox、Safari、Chrome 及 Opera 的最新版本。
+整合 AdminLTE 簡潔的管理性網站版型，高度可定製，易於使用，瀏覽器支援 IE9 以 上、FireFox、Safari、Chrome 及 Opera 的最新版本。
 
 ## 使用方式
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
@@ -30,11 +30,11 @@ $ php artisan migrate
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/YXwIJd3.png)
+![](https://i.imgur.com/m5u9E9K.png)
 > 建立新的帳號
 
-![](https://i.imgur.com/UPKm6tT.png)
+![](https://i.imgur.com/00w8i22.png)
 > 使用現有的帳號登入
 
-![](https://i.imgur.com/SZsOwBO.png)
+![](https://i.imgur.com/vtxzVDG.png)
 > 省去不少前端布局的時間，可以把時間拿來處理各項統計資料的分析及產出
