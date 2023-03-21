@@ -42,7 +42,7 @@
                 </ul>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->is('admin/user') || request()->is('admin/user/*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                             <i class="fa-solid fa-user nav-icon"></i>
                             <p>{{ trans('cruds.user.title') }}</p>
                         </a>
