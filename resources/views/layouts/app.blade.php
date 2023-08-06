@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
         <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap4.min.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/select/1.6.2/css/select.dataTables.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
@@ -74,17 +74,17 @@
         </div>
         @vite('resources/js/app.js')
         <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
-        <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" defer></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js" defer></script>
-        <script src="//cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" defer></script>
-        <script src="//cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap4.min.js" defer></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" defer></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" defer></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" defer></script>
+        <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js" defer></script>
+        <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js" defer></script>
+        <script src="//cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js" defer></script>
+        <script src="//cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap4.min.js" defer></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js" defer></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js" defer></script>
+        <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js" defer></script>
         <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.2.7/build/pdfmake.min.js" defer></script>
         <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.2.7/build/vfs_fonts.js" defer></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" defer></script>
-        <script src="https://cdn.datatables.net/select/1.6.2/js/dataTables.select.min.js" defer></script>
+        <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
         <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
         <script src="{{ asset('js/main.js') }}" defer></script>
@@ -100,8 +100,8 @@
                 let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}'
 
                 let languages = {
-                    'en': '//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json',
-                    'zh_TW': '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json'
+                    'en': '//cdn.datatables.net/plug-ins/1.13.5/i18n/en-GB.json',
+                    'zh_TW': '//cdn.datatables.net/plug-ins/1.13.5/i18n/zh-HANT.json'
                 };
 
                 $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, { className: 'btn' })
