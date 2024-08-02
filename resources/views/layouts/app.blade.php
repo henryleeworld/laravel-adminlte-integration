@@ -6,8 +6,8 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.13.10/css/jquery.dataTables.min.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.13.10/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap4.min.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -84,8 +84,8 @@
             </footer>
         </div>
         @vite('resources/js/app.js')
-        <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" defer></script>
-        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js" defer></script>
+        <script src="//cdn.datatables.net/1.13.10/js/jquery.dataTables.min.js" defer></script>
+        <script src="https://cdn.datatables.net/1.13.10/js/dataTables.bootstrap4.min.js" defer></script>
         <script src="//cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js" defer></script>
         <script src="//cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap4.min.js" defer></script>
         <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js" defer></script>
@@ -110,8 +110,8 @@
                 let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}'
 
                 let languages = {
-                    'en': '//cdn.datatables.net/plug-ins/1.13.7/i18n/en-GB.json',
-                    'zh_TW': '//cdn.datatables.net/plug-ins/1.13.7/i18n/zh-HANT.json'
+                    'en': '//cdn.datatables.net/plug-ins/1.13.10/i18n/en-GB.json',
+                    'zh_TW': '//cdn.datatables.net/plug-ins/1.13.10/i18n/zh-HANT.json'
                 };
 
                 $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, { className: 'btn' })
