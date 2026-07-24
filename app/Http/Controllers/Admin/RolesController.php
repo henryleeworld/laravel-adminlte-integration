@@ -7,15 +7,13 @@ use App\Http\Requests\Admin\StoreRolesRequest;
 use App\Http\Requests\Admin\UpdateRolesRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
 {
     /**
-     * Display a listing of Role.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of the resource.
      */
     public function index()
     {
@@ -29,9 +27,7 @@ class RolesController extends Controller
     }
 
     /**
-     * Show the form for creating new Role.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -44,10 +40,7 @@ class RolesController extends Controller
     }
 
     /**
-     * Store a newly created Role in storage.
-     *
-     * @param  \App\Http\Requests\StoreRolesRequest  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created resource in storage.
      */
     public function store(StoreRolesRequest $request)
     {
@@ -61,12 +54,8 @@ class RolesController extends Controller
         return redirect()->route('admin.roles.index');
     }
 
-
     /**
-     * Show the form for editing Role.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Show the form for editing the specified resource.
      */
     public function edit(Role $role)
     {
@@ -79,11 +68,7 @@ class RolesController extends Controller
     }
 
     /**
-     * Update Role in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRolesRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Update the specified resource in storage.
      */
     public function update(UpdateRolesRequest $request, Role $role)
     {
@@ -98,6 +83,9 @@ class RolesController extends Controller
         return redirect()->route('admin.roles.index');
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function show(Role $role)
     {
         if (! Gate::allows('users_manage')) {
@@ -109,12 +97,8 @@ class RolesController extends Controller
         return view('admin.roles.show', compact('role'));
     }
 
-
     /**
-     * Remove Role from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Remove the specified resource from storage.
      */
     public function destroy(Role $role)
     {
@@ -129,8 +113,6 @@ class RolesController extends Controller
 
     /**
      * Delete all selected Role at once.
-     *
-     * @param Request $request
      */
     public function massDestroy(Request $request)
     {

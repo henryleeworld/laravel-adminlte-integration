@@ -6,11 +6,17 @@ use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display the specified resource.
+     */
     public function show()
     {
         return view('auth.profile');
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(ProfileUpdateRequest $request)
     {
         if ($request->password) {

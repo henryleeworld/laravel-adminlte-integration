@@ -13,9 +13,7 @@ use Spatie\Permission\Models\Role;
 class UsersController extends Controller
 {
     /**
-     * Display a listing of User.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of the resource.
      */
     public function index()
     {
@@ -29,9 +27,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for creating new User.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -44,10 +40,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Store a newly created User in storage.
-     *
-     * @param  \App\Http\Requests\StoreUsersRequest  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created resource in storage.
      */
     public function store(StoreUsersRequest $request)
     {
@@ -61,12 +54,8 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
 
-
     /**
-     * Show the form for editing User.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Show the form for editing the specified resource.
      */
     public function edit(User $user)
     {
@@ -79,11 +68,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Update User in storage.
-     *
-     * @param  \App\Http\Requests\UpdateUsersRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Update the specified resource in storage.
      */
     public function update(UpdateUsersRequest $request, User $user)
     {
@@ -98,6 +83,9 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function show(User $user)
     {
         if (! Gate::allows('users_manage')) {
@@ -110,10 +98,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Remove User from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Remove the specified resource from storage.
      */
     public function destroy(User $user)
     {
@@ -128,8 +113,6 @@ class UsersController extends Controller
 
     /**
      * Delete all selected User at once.
-     *
-     * @param Request $request
      */
     public function massDestroy(Request $request)
     {
@@ -140,5 +123,4 @@ class UsersController extends Controller
 
         return response()->noContent();
     }
-
 }

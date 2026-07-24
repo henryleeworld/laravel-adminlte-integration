@@ -12,9 +12,7 @@ use Spatie\Permission\Models\Permission;
 class PermissionsController extends Controller
 {
     /**
-     * Display a listing of Permission.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of the resource.
      */
     public function index()
     {
@@ -28,9 +26,7 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Show the form for creating new Permission.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -41,10 +37,7 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Store a newly created Permission in storage.
-     *
-     * @param  \App\Http\Requests\StorePermissionsRequest  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created resource in storage.
      */
     public function store(StorePermissionsRequest $request)
     {
@@ -56,12 +49,8 @@ class PermissionsController extends Controller
         return redirect()->route('admin.permissions.index');
     }
 
-
     /**
-     * Show the form for editing Permission.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Show the form for editing the specified resource.
      */
     public function edit(Permission $permission)
     {
@@ -73,11 +62,7 @@ class PermissionsController extends Controller
     }
 
     /**
-     * Update Permission in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePermissionsRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Update the specified resource in storage.
      */
     public function update(UpdatePermissionsRequest $request, Permission $permission)
     {
@@ -90,12 +75,8 @@ class PermissionsController extends Controller
         return redirect()->route('admin.permissions.index');
     }
 
-
     /**
-     * Remove Permission from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Remove the specified resource from storage.
      */
     public function destroy(Permission $permission)
     {
@@ -108,6 +89,9 @@ class PermissionsController extends Controller
         return redirect()->route('admin.permissions.index');
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function show(Permission $permission)
     {
         if (! Gate::allows('users_manage')) {
@@ -119,8 +103,6 @@ class PermissionsController extends Controller
 
     /**
      * Delete all selected Permission at once.
-     *
-     * @param Request $request
      */
     public function massDestroy(Request $request)
     {
