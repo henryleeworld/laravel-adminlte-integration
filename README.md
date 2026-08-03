@@ -1,4 +1,4 @@
-# Laravel 12 AdminLTE 整合
+# Laravel 13 AdminLTE 整合
 
 整合 AdminLTE 簡潔的管理性網站版型，高度可定製，易於使用，瀏覽器支援 IE9 以 上、FireFox、Safari、Chrome 及 Opera 的最新版本。
 
@@ -34,11 +34,11 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/TQA3j1z.png)
+![](https://i.imgur.com/UyOyzSs.png)
 > 建立新的帳號
 
-![](https://i.imgur.com/dXWiMz8.png)
+![](https://i.imgur.com/I9vcRCw.png)
 > 使用現有的帳號登入
 
-![](https://i.imgur.com/ACRpe3V.png)
+![](https://i.imgur.com/PEK6t1b.png)
 > 省去不少前端布局的時間，可以把時間拿來處理各項統計資料的分析及產出
